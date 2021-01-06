@@ -21,7 +21,7 @@
  * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
- use Cake\Http\Middleware\CsrfProtectionMiddleware;
+use Cake\Http\Middleware\CsrfProtectionMiddleware;
 use Cake\Routing\Route\DashedRoute;
 use Cake\Routing\RouteBuilder;
 
@@ -55,7 +55,7 @@ $routes->scope('/', function (RouteBuilder $builder) {
      * its action called 'display', and we pass a param to select the view file
      * to use (in this case, templates/Pages/home.php)...
      */
-    $builder->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
+    $builder->connect('/', ['controller' => 'Pokemons', 'action' => 'index', 'home']);
 
     /*
      * ...and connect the rest of 'Pages' controller's URLs.
