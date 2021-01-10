@@ -59,6 +59,13 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 </li>
             </ul>
         </div>
+        <div class="collapse navbar-collapse text-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <?= $this->Html->link(__('Dashboard'), ['controller' => 'Pokemons', 'action' => 'dashboard'], ['class' => "nav-link"]) ?>
+                </li>
+            </ul>
+        </div>
     </nav>
     <main class="main">
         <div class="container">

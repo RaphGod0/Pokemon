@@ -47,6 +47,26 @@ class Pokemon extends Entity
     }
 
     /**
+     * Undocumented function
+     *
+     * @return string
+     */
+    protected function _getBackSprite()
+    {
+        return $this->default_back_sprite_url ? $this->default_back_sprite_url : 'unknown.png';
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @return string
+     */
+    protected function _getShinySprite()
+    {
+        return $this->shiny_front_sprite_url ? $this->shiny_front_sprite_url : 'unknown.png';
+    }
+
+    /**
      * Return the first type for a pokemon
      *
      * @return string
