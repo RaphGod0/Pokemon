@@ -21,16 +21,16 @@
                     <td><?= h($pokemon->name) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Default Front Sprite Url') ?></th>
-                    <td><?= h($pokemon->default_front_sprite_url) ?></td>
+                    <th><?= __('Default Front Sprite') ?></th>
+                    <td><img src="<?= h($pokemon->_getMainSpritePub()) ?>" /><p style="font-size: 0.8em;"><?= h($pokemon->_getMainSpritePub()) ?></p></td>
                 </tr>
                 <tr>
-                    <th><?= __('Default Front Sprite Url') ?></th>
-                    <td><?= h($pokemon->default_back_sprite_url) ?></td>
+                    <th><?= __('Default Back Sprite') ?></th>
+                    <td><img src="<?= h($pokemon->_getBackSpritePub()) ?>" /><p style="font-size: 0.8em;"><?= h($pokemon->_getBackSpritePub()) ?></p></td>
                 </tr>
                 <tr>
-                    <th><?= __('Default Front Sprite Url') ?></th>
-                    <td><?= h($pokemon->shiny_front_sprite_url) ?></td>
+                    <th><?= __('Shiny Front Sprite') ?></th>
+                    <td><img src="<?= h($pokemon->_getShinySpritePub()) ?>" /><p style="font-size: 0.8em;"><?= h($pokemon->_getShinySpritePub()) ?></p></td>
                 </tr>
                 <tr>
                     <th><?= __('Id') ?></th>

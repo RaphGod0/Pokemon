@@ -107,4 +107,20 @@ class Pokemon extends Entity
 
         return false;
     }
+
+    // Public methods to access protected methods
+    public function _getMainSpritePub()
+    {
+        return $this->_getMainSprite();
+    }
+
+    public function _getBackSpritePub()
+    {
+        return $this->_getBackSprite();
+    }
+
+    public function _getShinySpritePub()
+    {
+        return $this->_getShinySprite();
+    }
 }
