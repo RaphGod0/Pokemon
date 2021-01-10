@@ -82,10 +82,43 @@ class PokeApiShell extends Shell
 
         if ($response->isOk()) {
             $pokemon = $response->getJson();
+            $species_response = $http->get($pokemon['species']['url']);
+            if ($species_response->isOk()) {
+                $species = $species_response->getJson();
+                switch ($species['generation']['name']) {
+                    case 'generation-i':
+                        $pokemon['generation'] = 1;
+                        break;
+                    case 'generation-ii':
+                        $pokemon['generation'] = 2;
+                        break;
+                    case 'generation-iii':
+                        $pokemon['generation'] = 3;
+                        break;
+                    case 'generation-iv':
+                        $pokemon['generation'] = 4;
+                        break;
+                    case 'generation-v':
+                        $pokemon['generation'] = 5;
+                        break;
+                    case 'generation-vi':
+                        $pokemon['generation'] = 6;
+                        break;
+                    case 'generation-vii':
+                        $pokemon['generation'] = 7;
+                        break;
+                    case 'generation-viii':
+                        $pokemon['generation'] = 8;
+                        break;
+                    default:
+                        $pokemon['generation'] = 0;
+                }
+            } else $pokemon['generation'] = 0;
 
             return $this->Pokemons->formatDataForSave($pokemon);
         } else {
             $this->verbose("Something wrong happen during Api call with Pokemon id : {$number}");
+            return false;
         }
     }
 
