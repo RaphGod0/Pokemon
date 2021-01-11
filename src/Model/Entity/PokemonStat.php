@@ -11,6 +11,7 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $pokemon_id
  * @property string $stat_id
+ * @property string $stat_name
  * @property int $value
  *
  * @property \App\Model\Entity\Pokemon $pokemon

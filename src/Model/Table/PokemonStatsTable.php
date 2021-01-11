@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Model\Table;
@@ -85,7 +86,7 @@ class PokemonStatsTable extends Table
     {
         $rules->add($rules->existsIn(['pokemon_id'], 'Pokemons'), ['errorField' => 'pokemon_id']);
         $rules->add($rules->existsIn(['stat_id'], 'Stats'), ['errorField' => 'stat_id']);
-
+        $rules->add($rules->existsIn(['stat_name'], 'Stats'), ['errorField' => 'stat_name']);
         return $rules;
     }
 
@@ -105,6 +106,7 @@ class PokemonStatsTable extends Table
                     'value' => $stat['base_stat'],
                     'stat_id' => $statEntity->id,
                     'stat' => $statEntity,
+                    'stat_name' =>$statEntity->name,
                 ];
             })
             ->toArray();
