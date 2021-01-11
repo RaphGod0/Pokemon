@@ -43,6 +43,11 @@ class CreatePokemons extends AbstractMigration
             'default' => null,
             'null' => false,
         ]);
+        $table->addColumn('generation', 'integer', [
+            'default' => 0,
+            'limit' => 11,
+            'null' => false,
+        ]);
         $table->create();
     }
 }
