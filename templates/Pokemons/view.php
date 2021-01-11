@@ -5,69 +5,12 @@
  * @var \App\Model\Entity\Pokemon $pokemon
  */
 ?>
-<figure class="card card--<?= $pokemon->first_type ?>">
-    <div class="card">
-
-        <div class="c1">
-
-            <div>
-                <div class="card_image-container">
-                    <div class="poke-sprite img">
-                        <?= $this->Html->image($pokemon->main_sprite); ?>
-                    </div>
-                </div>
-            </div>
-
-            <div>
-
-                <h1 class="card_name"><?= $pokemon->name ?></h1>
-
-                <figcaption class="card_caption">
-
-
-                    <h3 class="card_type <?= $pokemon->first_type ?>">
-                        <?= $pokemon->first_type ?>
-                    </h3>
-
-                    <?php if ($pokemon->has_second_type) : ?>
-                        <h3 class=" card_second_type <?= $pokemon->second_type ?>">
-                            <?= $pokemon->second_type ?>
-                        </h3>
-                    <?php endif ?>
-
-                    <div class="related">
-                        <h4><?= __('Pokemon Stats') ?></h4>
-                        <?php if (!empty($pokemon->pokemon_stats)) : ?>
-                            <div class="table-responsive">
-                                <table>
-                                    <tr>
-
-                                        <th><?= __('Stat Id') ?></th>
-
-
-                                        <th><?= __('Value') ?></th>
-
-                                    </tr>
-                                    <?php foreach ($pokemon->pokemon_stats as $pokemonStats) : ?>
-                                        <tr>
-
-                                            <td><?= h($pokemonStats->stat_name) ?></td>
-                                            <td><?= h($pokemonStats->value) ?></td>
-
-                                        </tr>
-                                    <?php endforeach; ?>
-                                </table>
-                            </div>
-                        <?php endif; ?>
-                    </div>
-            </div>
-        </div>
-        <div class="card_image-container2">
-            <div class="poke-sprite img">
-                <?= $this->Html->image($pokemon->main_sprite); ?>
-                <?= $this->Html->image($pokemon->back_sprite); ?>
-                <?= $this->Html->image($pokemon->shiny_sprite); ?>
-            </div>
+<div class="row">
+    <aside class="column">
+        <div class="side-nav">
+            <h4 class="heading"><?= __('Actions') ?></h4>
+            <?= $this->Form->postLink(__('🗑 Delete Pokemon'), ['action' => 'delete', $pokemon->id], ['confirm' => __('Are you sure you want to delete # {0}?', $pokemon->id), 'class' => 'side-nav-item']) ?>
+            <?= $this->Html->link(__('📜 List Pokemons'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
         </div>
 
     </div>
@@ -80,7 +23,18 @@
                     <th><?= __('Name') ?></th>
                     <td><?= h($pokemon->name) ?></td>
                 </tr>
-
+                <tr>
+                    <th><?= __('Default Front Sprite') ?></th>
+                    <td><img src="<?= h($pokemon->_getMainSpritePub()) ?>" /><p style="font-size: 0.8em;"><?= h($pokemon->_getMainSpritePub()) ?></p></td>
+                </tr>
+                <tr>
+                    <th><?= __('Default Back Sprite') ?></th>
+                    <td><img src="<?= h($pokemon->_getBackSpritePub()) ?>" /><p style="font-size: 0.8em;"><?= h($pokemon->_getBackSpritePub()) ?></p></td>
+                </tr>
+                <tr>
+                    <th><?= __('Shiny Front Sprite') ?></th>
+                    <td><img src="<?= h($pokemon->_getShinySpritePub()) ?>" /><p style="font-size: 0.8em;"><?= h($pokemon->_getShinySpritePub()) ?></p></td>
+                </tr>
                 <tr>
                     <th><?= __('Id') ?></th>
                     <td><?= $this->Number->format($pokemon->id) ?></td>
