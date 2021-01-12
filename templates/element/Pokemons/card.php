@@ -3,7 +3,7 @@
     <div class="card__image-container poke-sprite-<?= $pokemon->pokedex_number ?>" id="main-poke-sprites">
         <?= $this->Html->image($pokemon->main_sprite); ?>
     </div>
-    
+
     <figcaption class="card__caption">
         <h1 class="card__name"><?= $pokemon->name ?></h1>
 
