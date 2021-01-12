@@ -76,6 +76,13 @@
                 <?= $this->Html->image($pokemon->shiny_sprite); ?>
             </div>
         </div>
+        <div class="card_image-container2">
+            <div class="poke-sprite img">
+                <?= $this->Html->image($pokemon->main_sprite); ?>
+                <?= $this->Html->image($pokemon->back_sprite); ?>
+                <?= $this->Html->image($pokemon->shiny_sprite); ?>
+            </div>
+        </div>
 
     </div>
     </div>
